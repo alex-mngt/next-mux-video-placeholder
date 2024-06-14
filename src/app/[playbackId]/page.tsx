@@ -1,8 +1,17 @@
 import { Video } from "@/components/Video";
 import clsx from "clsx";
+import { FC } from "react";
 
-const HomePage = () => {
-  const playbackId = process.env.MUX_VIDEO_ID;
+type Params = {
+  playbackId: string;
+};
+
+type Props = {
+  params: Params;
+};
+
+const PlaybackIdPage: FC<Props> = (props) => {
+  const { playbackId } = props.params;
 
   if (!playbackId) {
     throw new Error("MUX_VIDEO_ID env variable must be set");
@@ -26,4 +35,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default PlaybackIdPage;
